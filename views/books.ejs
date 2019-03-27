@@ -1,0 +1,34 @@
+<% include partials/manage/header.ejs %>
+
+<h4 class="mt-4"><a href="/books/add/">Add Book</a></h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Book Title</th>
+            <th scope="col">Category</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% books.forEach(function(book){%>
+        <tr>
+            <td><%= book._id %></td>
+            <td><%= book.title %></td>
+            <td><%= book.category %></td>
+            <td><a class="btn btn-primary" href="/books/edit/<%= book._id %>">Edit</a></td>
+            <td>
+                <form method="post" action="/books/delete/<%= book._id %>">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    <input type="hidden" name="_csrf" value="{_csrf}" />
+                    <input type="hidden" name="_method" value="DELETE" />
+                </form>
+            </td>
+        </tr>
+        <%}) %>
+    </tbody>
+</table>
+</div>
+
+<% include partials/manage/footer.ejs %>

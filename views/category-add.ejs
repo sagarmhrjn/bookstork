@@ -1,0 +1,29 @@
+<% include partials/manage/header.ejs %>
+
+<h2 class="mt-4">Add Category</h2>
+<!-- Error Message -->
+<% if(errors){ %>
+<ul>
+    <% errors.forEach(function(error){ %>
+    <div class="alert alert-warning">
+        <li>
+            <%= error.msg %>
+        </li>
+    </div>
+    <% }) %>
+</ul>
+<% } %>
+<form method="post">
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input name="name" type="text" class="form-control col-lg-6" />
+    </div>
+    <input type="submit" class="btn btn-primary" value="Submit">
+    <input type="hidden" name="_csrf" value="{_csrf}">
+</form>
+</div>
+
+
+
+
+<% include partials/manage/footer.ejs %>

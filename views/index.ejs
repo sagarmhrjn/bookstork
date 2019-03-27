@@ -1,0 +1,22 @@
+<% include partials/header.ejs %>
+
+<div class="row">
+    <% books.forEach(function(book){%>
+    <div class="col-3">
+        <div class="card mt-2 mb-2">
+            <a href="/details/<%= book._id %>"><img style="height:300px;width:100%" src="<%= book.cover %>"
+                    alt="Card image cap"></a>
+            <div class="card-body">
+                <h5 class="card-title"><%= book.title %></h5>
+                <p class="card-text"><%= book.description %></p>
+                <div class="price"><a href="/details/<%= book._id %>">Buy it for <span>$<%= book.price %></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%}) %>
+</div>
+</div>
+
+
+<% include partials/footer.ejs %>

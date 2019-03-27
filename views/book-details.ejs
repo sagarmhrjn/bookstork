@@ -1,0 +1,29 @@
+<% include partials/header.ejs %>
+
+<div class="row mt-3 mb-3">
+    <div class="col-4">
+        <img style="height:450px;width:100%" src="<%= book.cover %>">
+    </div>
+    <div class="col-8" style="text-align:center;">
+        <h2><%= book.title %></h2>
+        <ul class="bookInfo">
+            <li>Category: <%= book.category %></li>
+            <li>Author: <%= book.author %></li>
+            <li>Publisher: <%= book.publisher %></li>
+        </ul>
+        <br>
+        <div class="price">Buy it for <span>$<%= book.price %></span></div><br>
+        <br>
+        <p><%= book.description %></p>
+
+        <form method="post" action="/cart/<%= book._id %>">
+            <input type="submit" class="btn btn-success" value="Add to Cart">
+            <input type="hidden" value="{_csrf}" name="_csrf">
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+<% include partials/footer.ejs %>
